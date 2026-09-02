@@ -318,9 +318,9 @@ body.dark .option, body.dark .option-btn {
 body.dark .option.selected, body.dark .option-btn.selected {
   background: rgba(74,222,128,0.18) !important; border-color: #4ADE80 !important; }
 body.dark .option.correct, body.dark .option-btn.correct {
-  background: rgba(74,222,128,0.24) !important; border-color: #4ADE80 !important; color: var(--ink) !important; }
+  background: rgba(74,222,128,0.34); border-color: #4ADE80; color: var(--ink) !important; }
 body.dark .option.wrong, body.dark .option-btn.wrong {
-  background: rgba(111,176,255,0.20) !important; border-color: #6FB0FF !important; color: var(--ink) !important; }
+  background: rgba(255,107,107,0.36); border-color: #FF8787; color: var(--ink) !important; }
 body.dark .secondary-btn:hover:not(:disabled) { background: var(--cut) !important; }
 body.dark .explanation { background: var(--cut) !important; border-color: rgba(74,222,128,0.30) !important; }
 body.dark .expl-text { color: var(--ink) !important; }
@@ -507,8 +507,8 @@ body.dark .figure figcaption { border-top-color: var(--a1); }
   .option:hover:not(:disabled) { background: var(--cut); border-color: var(--a1); }
   .option:disabled { cursor: default; }
   .option.selected { background: var(--cut); border-color: var(--a1); border-width: 2px; padding: 0.94rem 0.99rem; }
-  .option.correct { background: var(--ok-bg); border-color: var(--a2); border-width: 2px; padding: 0.94rem 0.99rem; }
-  .option.wrong { background: var(--no-bg); border-color: var(--clay); border-width: 2px; padding: 0.94rem 0.99rem; }
+  .option.correct { background: rgba(34,197,94,0.30); border-color: #15803D; border-width: 2px; padding: 0.94rem 0.99rem; }
+  .option.wrong { background: rgba(239,68,68,0.28); border-color: #DC2626; border-width: 2px; padding: 0.94rem 0.99rem; }
   .opt-letter { font-family: var(--serif); font-weight: 800; color: var(--a1); min-width: 1.1rem; }
   .opt-text { flex: 1; }
   .opt-mark { font-weight: 700; font-size: 1.1rem; }
@@ -615,6 +615,35 @@ body.dark .figure figcaption { border-top-color: var(--a1); }
   .results-actions button { flex: 1; }
   .hidden { display: none !important; }
 
+
+/* The answer fills carry the meaning, so the words on top of them have to stay
+   legible on both fills in both modes. Before this, correct-option text kept a
+   near-white colour that sat on a light green fill at 1.22 to 1. The hue lives
+   in the fill and the border; the text is plain ink. */
+.option.correct .opt-text,
+.option-btn.correct .opt-text,
+.option.correct .opt-letter,
+.option-btn.correct .opt-letter,
+.option.correct .opt-mark,
+.option-btn.correct .opt-mark,
+.option.wrong .opt-text,
+.option-btn.wrong .opt-text,
+.option.wrong .opt-letter,
+.option-btn.wrong .opt-letter,
+.option.wrong .opt-mark,
+.option-btn.wrong .opt-mark { color: #101418 !important; opacity: 1 !important; }
+body.dark .option.correct .opt-text,
+body.dark .option-btn.correct .opt-text,
+body.dark .option.correct .opt-letter,
+body.dark .option-btn.correct .opt-letter,
+body.dark .option.correct .opt-mark,
+body.dark .option-btn.correct .opt-mark,
+body.dark .option.wrong .opt-text,
+body.dark .option-btn.wrong .opt-text,
+body.dark .option.wrong .opt-letter,
+body.dark .option-btn.wrong .opt-letter,
+body.dark .option.wrong .opt-mark,
+body.dark .option-btn.wrong .opt-mark { color: #F2F5F8 !important; opacity: 1 !important; }
 </style>
 </head>
 <body>
@@ -704,7 +733,7 @@ const FLOW = [
       "Nothing at all, because crowd sizes can never really be known for certain"
     ],
     "correct": 0,
-    "explanation": "What you need is a photograph from further back. You do not need a more honest person. Organisers count high. Opponents count low. Both of them were there. You are about to compare two photographs of the same movement. They were taken four years apart, in two different countries.",
+    "explanation": "What you need is a photograph from further back. You do not need a more honest person. Organisers count high. Opponents count low. Both of them were there. You are about to compare two photographs of the same movement. They were taken four years apart, in two different countries. In the exam, an answer that asks which photographer was more honest has missed the question and earns nothing.",
     "noSource": true
   },
   {
@@ -874,7 +903,7 @@ const FLOW = [
       "2": 1,
       "3": 1
     },
-    "explanation": "The four languages and the sponsors are both in the forum picture. The banner against capitalism and the puppets are both in the street picture. This looks easy. Do it carefully anyway. A comparison answer goes wrong if you mix up the two sources. Match each piece of evidence to the right source before you write anything.",
+    "explanation": "The four languages and the sponsors are both in the forum picture. The banner against capitalism and the puppets are both in the street picture. This looks easy. Do it carefully anyway. A comparison answer goes wrong if you mix up the two sources. Match each piece of evidence to the right source before you write anything. Attribute it to the wrong one and a marker cannot give you the mark.",
     "marks": "2 marks"
   },
   {
@@ -964,7 +993,7 @@ const FLOW = [
   {
     "type": "content",
     "tag": "Mark this answer",
-    "html": "<h2>Two answers to the same question</h2><p>The question was: using both sources and your own knowledge, explain how far the opposition to globalisation was united.</p><p><strong>Answer one.</strong> \"The opposition was not united. Source A shows a forum in Brazil with a banner in four languages saying another world is possible, and Source B shows a march in Seattle with a banner attacking capitalism itself. One is offering an alternative and the other is rejecting the system. Trade unions worried about jobs, environmental groups worried about pollution rules, and nationalist parties in some countries opposed globalisation for completely different reasons again.\"</p><p><strong>Answer two.</strong> \"The opposition was not united because different people wanted different things. Some wanted to change the system and others wanted to end it. There were many protests around the world and they had different aims, so the movement was divided.\"</p><p>Read them again before you answer the next screen.</p>",
+    "html": "<h2>Two answers to the same question</h2><p>The question was: using both sources and your own knowledge, explain how far the opposition to globalisation was united.</p><p><strong>Answer one.</strong> \"The opposition was not united. Source A shows a forum in Brazil with a banner in four languages saying another world is possible. Source B shows a march in Seattle with a banner attacking capitalism itself. One is offering an alternative and the other is rejecting the system. Trade unions worried about jobs, environmental groups worried about pollution rules, and nationalist parties in some countries opposed globalisation for completely different reasons again.\"</p><p><strong>Answer two.</strong> \"The opposition was not united because different people wanted different things. Some wanted to change the system and others wanted to end it. There were many protests around the world and they had different aims, so the movement was divided.\"</p><p>Read them again before you answer the next screen.</p>",
     "remember": "Two answers can reach the same conclusion and be worth very different marks. What separates them is evidence.",
     "terms": []
   },
